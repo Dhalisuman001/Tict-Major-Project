@@ -15,9 +15,7 @@ use App\Http\Controllers\RegisterController;
 |
 */
 
-Route::get('/docs', function () {
-    return view('welcome');
-});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
@@ -27,6 +25,8 @@ Route::get('/', function (Request $request) {
 Route::get('/login', function (Request $request) {
     return view('login')->with("message","");
 });
+
+
 Route::post('/login',[LoginController::class,'loginCtrl']);
 // Route::get('login/{username}/{password}',[LoginController::class,'Login'])->name('login');
 Route::post('/register',[RegisterController::class,'Register']);
