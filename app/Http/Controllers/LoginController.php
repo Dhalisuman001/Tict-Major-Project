@@ -19,9 +19,9 @@ class LoginController extends Controller
     public function loginCtrl(Request $request)
     {
         session_start();
-        $EMAIl = $request->email;
-        $PASSWORD = $request->password;
-        $response = DB::select("SELECT * FROM userinfo_table WHERE	email = '$EMAIl' AND password= '$PASSWORD'");
+        $email = $request->email;
+        $password = $request->password;
+        $response = DB::select("CALL sp_getUserDetails('$email','$password');");
         $rsp_arr_length = count($response);
         if($rsp_arr_length > 0)
         {

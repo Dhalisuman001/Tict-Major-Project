@@ -5,11 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>IOT GateWay | Device Details
   </title>
-  <?php
-  session_abort();
-  session_start();
-  ?>
-
+<?php
+session_start();
+?>
   <link rel="stylesheet" href="{{asset('css/masterForm.css')}}">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -266,51 +264,68 @@
         <div class="row">
           <!-- left column -->
           <div class="col-md-6">
-           <form action="" method="POST" class="form">
+           <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style/masterFrom.css" />
+    <title>Form</title>
+  </head>
+  <body>
+    <div class="formbold-main-wrapper">
+      <div class="formbold-form-wrapper">
+        <form action="" method="POST" class="form">
           <div class="header">
-            <p>Device Register Form</p>
+            <p>Sensor Register Form</p>
           </div>
           <div class="formbold-mb-5">
-            <label for="device_name" class="formbold-form-label">
-              Device Name
+            <label for="sensor_name" class="formbold-form-label">
+              Sensor Name
             </label>
             <input
               type="text"
-              name="device_name"
-              id="device_name"
-              placeholder="Device name"
+              name="sensor_name"
+              id="sensor_name"
+              placeholder="Sensor name"
               class="formbold-form-input"
             />
           </div>
           <div class="formbold-mb-5">
-            <label for="device_code" class="formbold-form-label">
-              Device Code
+            <label for="sensor_type" class="formbold-form-label">
+              Sensor Type
             </label>
             <input
               type="text"
-              name="device_code"
-              id="device_code"
-              placeholder="Device code"
+              name="sensor_type"
+              id="sensor_type"
+              placeholder="Sensor type"
               class="formbold-form-input"
             />
           </div>
-          <div class="formbold-mb-5">
-            <label for="batch_no" class="formbold-form-label">
+          <!-- <div class="formbold-mb-5">
+            <label for="email" class="formbold-form-label">
               Batch Number
             </label>
             <input
-              type="text"
-              name="batch_no"
-              id="batch_no"
+              type="email"
+              name="email"
+              id="email"
               placeholder="Batch no"
               class="formbold-form-input"
             />
-          </div>
+          </div> -->
 
           <div>
-            <button class="formbold-btn">Register Device</button>
+            <button class="formbold-btn">Register Sensor</button>
           </div>
         </form>
+      </div>
+    </div>
+  </body>
+</html>
+
 
 
           </div>

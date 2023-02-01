@@ -13,22 +13,19 @@ class RegisterController extends Controller
 {
     public function Register(Request $request)
     {
-            $Email = $request->email;
-            $Usename = $request->username;
-            $Password = $request->password;
-            $exist = DB::select("SELECT * FROM userinfo_table WHERE	email = '$Email' ");
+            $email = $request->email;
+            $username = $request->username;
+            $password = $request->password;
+            $exist = DB::select("CALL sp_getUserDetails('$email','$password');");
             $rsp_arr_length = count($exist);
-            // $response = DB::select("CALL sp_setUserDetails('".$UsenFullame."','".$Usename."','".$Password."');");
-
-
 
             if ($rsp_arr_length>0) {
               return view('login')->with("message","'Email already exist'");
             }
             else{
-            $response = DB::select("INSERT INTO userinfo_table (email,password,username) VALUES ('$Email','$Password','$Usename')");
+            $response = DB::insert("INSERT INTO userinfo_table (email,password,username) VALUES ('$email','$password','$username')");
 
-               $_SESSION['username'] = $Usename;
+               $_SESSION['username'] = $username;
               return view('dashboard');}
     }
 

@@ -20,10 +20,20 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 });
 Route::get('/', function (Request $request) {
-     return view('login')->with("message","");
+    return view('login')->with("message","");
 });
 Route::get('/login', function (Request $request) {
     return view('login')->with("message","");
+});
+
+Route::get('/add-device', function () {
+    return view('dashboard');
+});
+Route::get('/device-issue', function (Request $request) {
+    return view('deviceIssue')->with("message","");
+});
+Route::get('/sensor', function (Request $request) {
+    return view('sensorForm')->with("message","");
 });
 
 
