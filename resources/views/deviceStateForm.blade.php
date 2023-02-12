@@ -5,11 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>IOT GateWay | Device Details
   </title>
-  <?php
-  session_abort();
-  session_start();
-  ?>
-
+<?php
+session_start();
+?>
   <link rel="stylesheet" href="{{asset('css/masterForm.css')}}">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -203,11 +201,11 @@
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-           <ul class="nav nav-treeview">
+            <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="add-device" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Device Details</p>
+                  <p>Device Details Form</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -272,49 +270,48 @@
         <div class="row">
           <!-- left column -->
           <div class="col-md-6">
-           <form action="" method="POST" class="form">
+            <form action="device-state" method="POST" class="form">
+               @csrf
           <div class="header">
-            <p>Device Register Form</p>
+            <p>Device State Form</p>
           </div>
           <div class="formbold-mb-5">
-            <label for="device_name" class="formbold-form-label">
-              Device Name
+            <label for="device_id" class="formbold-form-label">
+              Device Id
             </label>
             <input
               type="text"
-              name="device_name"
-              id="device_name"
-              placeholder="Device name"
+              name="id"
+              id="device_id"
+              placeholder="Device Id"
               class="formbold-form-input"
             />
           </div>
           <div class="formbold-mb-5">
-            <label for="device_code" class="formbold-form-label">
-              Device Code
+            <label for="humidity" class="formbold-form-label">
+              Device Humidity
             </label>
             <input
               type="text"
-              name="device_code"
-              id="device_code"
-              placeholder="Device code"
+              name="humidity"
+              id="humidity"
+              placeholder="Humidity"
               class="formbold-form-input"
             />
           </div>
           <div class="formbold-mb-5">
-            <label for="batch_no" class="formbold-form-label">
-              Batch Number
-            </label>
+            <label for="temp" class="formbold-form-label"> Temparature </label>
             <input
               type="text"
-              name="batch_no"
-              id="batch_no"
-              placeholder="Batch no"
+              name="temp"
+              id="temp"
+              placeholder="Temparature"
               class="formbold-form-input"
             />
           </div>
 
           <div>
-            <button class="formbold-btn">Register Device</button>
+            <button class="formbold-btn">Add Device State</button>
           </div>
         </form>
 
