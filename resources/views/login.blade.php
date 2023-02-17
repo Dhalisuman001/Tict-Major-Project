@@ -1,84 +1,35 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+<html lang="en" >
 <html>
+<head>
+  <title>Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="css/login_style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+</head>
 
-  <head>
-    <title>Login</title>
-    <link
-    href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap"
-    rel="stylesheet"
-    />
-    <link rel="stylesheet" type="text/css" href="{{asset('css/login.css')}}" />
-      <script src="dist/js/swwetalert.min.js"></script>
-  </head>
-  <body>
-    <div class="main">
-      <input type="checkbox" id="chk" aria-hidden="true" />
+<body class="body">
+<div class="login-page">
+  <div class="form">
+    <form action="login" method="post">
+      @csrf
+      <lottie-player src="https://assets4.lottiefiles.com/datafiles/XRVoUu3IX4sGWtiC3MPpFnJvZNq7lVWDCa8LSqgS/profile.json"  background="transparent"  speed="1"  style="justify-content: center;" loop  autoplay></lottie-player>
+      <input type="email" required placeholder="&#xf007;  email" name="email" />
+      <input type="password" required id="password" placeholder="&#xf023;  password" name="password"/>
+      <br>
+      <br>
+      <button type="submit" >Login</button>
+      <p class="message"></p>
+    </form>
 
-      <div class="signup">
-        <form method="post" action="register">
-                @csrf
-        <?php
-          if($message == "")
-          {
 
-          }
-          else
-          {
-            echo '<script type="text/javascript">';
-            echo 'swal({
-              title: "Error",
-              text: '.$message.',
-              icon: "error",
-              button: "Try Again",
-            });';  //not showing an alert box.
-            echo '</script>';
-          }
-          ?>
-          <label for="chk" aria-hidden="true">Sign up</label>
-          <input type="text" name="username" placeholder="User name" required="" />
-          <input type="email" name="email" placeholder="Email" required="" />
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            required=""
-          />
-          <button type="submit" name="SubmitButton">Sign up</button>
-        </form>
-      </div>
+  </div>
+</div>
 
-      <div class="login">
-
-        <form action="/login" method="post">
-            @csrf
-        <?php
-          if($message == "")
-          {
-
-          }
-          else
-          {
-            echo '<script type="text/javascript">';
-            echo 'swal({
-              title: "Error",
-              text: '.$message.',
-              icon: "error",
-              button: "Try Again",
-            });';  //not showing an alert box.
-            echo '</script>';
-          }
-          ?>
-          <label for="chk" aria-hidden="true">Login</label>
-          <input type="email" name="email" placeholder="Email" required="" />
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            required=""
-          />
-          <button type="submit" name="SubmitButton">Login</button>
-        </form>
-      </div>
-    </div>
-  </body>
+</body>
 </html>

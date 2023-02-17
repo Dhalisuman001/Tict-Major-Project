@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\View;
 use Illuminate\Http\Request;
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LoginCtrl;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DeviceStateController;
 /*
@@ -17,17 +18,17 @@ use App\Http\Controllers\DeviceStateController;
 */
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-});
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// });
 Route::get('/', function (Request $request) {
-    return view('login')->with("message","");
+    return view('Login');
 });
 Route::get('/login', function (Request $request) {
-    return view('login')->with("message","");
+       return view('Login');
 });
-Route::get('/user', function (Request $request) {
-    return view('user');
+Route::get('/register', function (Request $request) {
+    return view('Signup');
 });
 
 Route::get('/add-device', function () {
@@ -48,11 +49,8 @@ Route::get('/deviceinfo', function (Request $request) {
 
 
 
-Route::post('/login',[LoginController::class,'loginCtrl']);
+Route::post('/login',[LoginCtrl::class,'Login']);
 // Route::get('login/{username}/{password}',[LoginController::class,'Login'])->name('login');
 Route::post('/register',[RegisterController::class,'Register']);
 Route::post('/device-state',[DeviceStateController::class,'updateDeviceState']);
 // Route::get('route_name/{parameters}',[Controller_class_name::class,'method_name']);
-Route::get('/register', function () {
-    return view('register');
-});
