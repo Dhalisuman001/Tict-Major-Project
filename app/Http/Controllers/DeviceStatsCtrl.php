@@ -4,8 +4,13 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
 
-class DeviceStateController extends Controller
+class DeviceStatsCtrl extends Controller
 {
+
+  public function Index(){
+    return view('Dashboard');
+  }
+
     public function getDeviceState(Request $request){
 
          $id = $request->$device_id;

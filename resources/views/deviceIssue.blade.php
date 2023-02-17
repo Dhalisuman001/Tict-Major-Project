@@ -1,18 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>IOT GateWay | Device Details
-  </title>
-
-  <link rel="stylesheet" href="{{asset('css/masterForm.css')}}">
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+    @include('includes.head')
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -192,34 +181,16 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="dashboard" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Master Entry
+                Dashboard
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="add-device" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Device Details Form</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="device-issue" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Device Issue From </p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="sensor" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Sensor Details Form</p>
-                </a>
-              </li>
-            </ul>
-          </li>
+          <li/>
+            @include('includes.form')
+
           <li class="nav-item">
             <a href="../widgets.html" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
@@ -262,49 +233,32 @@
         <div class="row">
           <!-- left column -->
           <div class="col-md-6">
-            <form action="" method="POST" class="form">
-          <div class="header">
-            <p>Device Issue Form</p>
-          </div>
-          <div class="formbold-mb-5">
-            <label for="device_id" class="formbold-form-label">
-              Device Id
-            </label>
-            <input
-              type="text"
-              name="device_id"
-              id="device_id"
-              placeholder="Device Id"
-              class="formbold-form-input"
-            />
-          </div>
-          <div class="formbold-mb-5">
-            <label for="customer_id" class="formbold-form-label">
-              Customer Id
-            </label>
-            <input
-              type="text"
-              name="customer_id"
-              id="customer_id"
-              placeholder="Customer id"
-              class="formbold-form-input"
-            />
-          </div>
-          <div class="formbold-mb-5">
-            <label for="location" class="formbold-form-label"> Location </label>
-            <input
-              type="text"
-              name="location"
-              id="location"
-              placeholder="Location"
-              class="formbold-form-input"
-            />
-          </div>
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Device Issue</h3>
+              </div>
+             <form action="device-issue" method="post">
+                @csrf
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="DeviceID">Device ID</label>
+                    <input type="text" class="form-control" id="device_id" name="device_id" placeholder="Enter Device Id"  required>
+                  </div>
+                  <div class="form-group">
+                    <label for="CustomerID">Customer ID</label>
+                    <input type="text" class="form-control" id="customer_id" name="customer_id" placeholder="Enter Customer Id" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="Location">Location</label>
+                    <input type="text" class="form-control" id="location" name="location" placeholder="Enter Location" required>
+                  </div>
+                </div>
+                <!-- /.card-body -->
 
-          <div>
-            <button class="formbold-btn">Issue Device</button>
-          </div>
-        </form>
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
 
 
           </div>
@@ -318,12 +272,7 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.2.0
-    </div>
-    <strong>Copyright &copy; 2023-2024 <a href="#">Indranil</a>.</strong> All rights reserved.
-  </footer>
+  @include('includes.footer')
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">

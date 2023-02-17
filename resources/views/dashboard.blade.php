@@ -1,22 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>IOT GateWay | Device Details
-  </title>
-  <?php
-  session_abort();
-  session_start();
-  ?>
-
-  <link rel="stylesheet" href="{{asset('css/masterForm.css')}}">
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  @include('includes.head')
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -88,7 +73,7 @@
               <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
-
+                  John Pierce
                   <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
                 </h3>
                 <p class="text-sm">I got your message bro</p>
@@ -104,7 +89,7 @@
               <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
-
+                  Nora Silvester
                   <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
                 </h3>
                 <p class="text-sm">The subject goes here</p>
@@ -174,7 +159,7 @@
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block"></a>
+          <a href="#" class="d-block">Alexander Pierce</a>
         </div>
       </div>
 
@@ -194,42 +179,13 @@
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Master Entry
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-           <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="add-device" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Device Details</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="device-issue" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Device Issue From </p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="sensor" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Sensor Details Form</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="deviceinfo" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Device Status Form</p>
-                </a>
-              </li>
-            </ul>
-          </li>
+
+
+          with font-awesome or any other icon font library -->
+
+
+             @include('includes.form')
+
           <li class="nav-item">
             <a href="../widgets.html" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
@@ -266,57 +222,28 @@
       </div><!-- /.container-fluid -->
     </section>
 
+
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
         <div class="row">
           <!-- left column -->
-          <div class="col-md-6">
-           <form action="" method="POST" class="form">
-          <div class="header">
-            <p>Device Register Form</p>
-          </div>
-          <div class="formbold-mb-5">
-            <label for="device_name" class="formbold-form-label">
-              Device Name
-            </label>
-            <input
-              type="text"
-              name="device_name"
-              id="device_name"
-              placeholder="Device name"
-              class="formbold-form-input"
-            />
-          </div>
-          <div class="formbold-mb-5">
-            <label for="device_code" class="formbold-form-label">
-              Device Code
-            </label>
-            <input
-              type="text"
-              name="device_code"
-              id="device_code"
-              placeholder="Device code"
-              class="formbold-form-input"
-            />
-          </div>
-          <div class="formbold-mb-5">
-            <label for="batch_no" class="formbold-form-label">
-              Batch Number
-            </label>
-            <input
-              type="text"
-              name="batch_no"
-              id="batch_no"
-              placeholder="Batch no"
-              class="formbold-form-input"
-            />
-          </div>
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box">
+              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
 
-          <div>
-            <button class="formbold-btn">Register Device</button>
+              <div class="info-box-content">
+                <span class="info-box-text">CPU Traffic</span>
+                <span class="info-box-number">
+                  10
+                  <small>%</small>
+                </span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
           </div>
-        </form>
+            <!-- /.card -->
 
 
           </div>
@@ -330,12 +257,7 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.2.0
-    </div>
-    <strong>Copyright &copy; 2023-2024 <a href="#">Indranil</a>.</strong> All rights reserved.
-  </footer>
+   @include('includes.footer')
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">

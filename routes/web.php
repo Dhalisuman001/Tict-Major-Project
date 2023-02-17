@@ -4,8 +4,10 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\LoginCtrl;
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\DeviceStateController;
+use App\Http\Controllers\DeviceRegisterCtrl;
+use App\Http\Controllers\DeviceStatsCtrl;
+use App\Http\Controllers\DeviceIssueCtrl;
+use App\Http\Controllers\SensorRegisterCtrl;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,26 +33,28 @@ Route::get('/register', function (Request $request) {
     return view('Signup');
 });
 
-Route::get('/add-device', function () {
-    return view('dashboard');
-});
-Route::get('/device-issue', function (Request $request) {
-    return view('deviceIssue')->with("message","");
-});
-Route::get('/sensor', function (Request $request) {
-    return view('sensorForm')->with("message","");
-});
-Route::get('/get-data', function (Request $request) {
-    return view('userList');
-});
-Route::get('/deviceinfo', function (Request $request) {
-    return view('deviceStateForm');
-});
 
 
 
 Route::post('/login',[LoginCtrl::class,'Login']);
-// Route::get('login/{username}/{password}',[LoginController::class,'Login'])->name('login');
+
 Route::post('/register',[RegisterController::class,'Register']);
-Route::post('/device-state',[DeviceStateController::class,'updateDeviceState']);
+
+Route::get('dashboard',[DeviceStatsCtrl::class,'Index']);
+
+Route::get('/device-entry',[DeviceRegisterCtrl::class,'Index']);
+
+Route::post('/device-entry',[DeviceRegisterCtrl::class,'DeviceEntry']);
+
+Route::get('/device-issue',[DeviceIssueCtrl::class,'Index']);
+
+Route::post('/device-issue',[DeviceIssueCtrl::class,'DeviceIssue']);
+
+Route::get('/sensor',[SensorRegisterCtrl::class,'Index']);
+
+Route::post('/sensor',[SensorRegisterCtrl::class,'SensorRegister']);
+
+
+// Route::get('login/{username}/{password}',[LoginController::class,'Login'])->name('login');
+Route::post('/device-state',[DeviceStatsCtrl::class,'updateDeviceState']);
 // Route::get('route_name/{parameters}',[Controller_class_name::class,'method_name']);
