@@ -57,7 +57,9 @@ Route::post('/sensor',[SensorRegisterCtrl::class,'SensorRegister']);
 
 Route::get('/customer',[CustomerRegister::class,'Index']);
 
-Route::post('/sensor',[CustomerRegister::class,'CustomerEntry']);
+Route::post('/customer',[CustomerRegister::class,'CustomerEntry']);
+
+Route::get('/logout',[LoginCtrl::class,'Logout']);
 
 
 // Route::get('login/{username}/{password}',[LoginController::class,'Login'])->name('login');

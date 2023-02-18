@@ -3,12 +3,12 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 <li class="nav-item">
             <a href="dashboard" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="nav-icon fa-solid fa-table-columns"></i>
               <p>
                 Dashboard
               </p>
             </a>
-          <li/>
+  <li/>
 <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -17,7 +17,7 @@
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-<ul class="nav nav-treeview">
+       <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="device-entry" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -43,6 +43,15 @@
                 </a>
               </li>
 </ul>
+
 </li>
+<li class="nav-item">
+            <a href="logout" class="nav-link">
+              <i class="nav-icon fa-solid fa-right-from-bracket"></i>
+              <p>
+                Logout
+              </p>
+            </a>
+  <li/>
  </ul>
-      </nav>
+</nav>

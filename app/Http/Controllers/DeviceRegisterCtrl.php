@@ -8,6 +8,9 @@ use App\Http\Controllers\DeviceStatsCtrl;
 class DeviceRegisterCtrl extends Controller
 {
     public function Index(){
+        if (session('username')=='') {
+           return view('Login');
+        }
         return view('DeviceEntry');
     }
     public function DeviceEntry(Request $request){

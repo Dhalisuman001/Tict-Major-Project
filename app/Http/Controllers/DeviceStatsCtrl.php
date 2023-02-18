@@ -8,6 +8,9 @@ class DeviceStatsCtrl extends Controller
 {
 
   public function Index(){
+    if (session('username')=='') {
+           return view('Login');
+        }
     return view('Dashboard');
   }
 

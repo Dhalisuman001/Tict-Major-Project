@@ -8,6 +8,9 @@ use App\Http\Controllers\DeviceStatsCtrl;
 class SensorRegisterCtrl extends Controller
 {
     public function Index(){
+        if (session('username')=='') {
+           return view('Login');
+        }
         return view('SensorEntry');
     }
     public function SensorRegister(Request $request){

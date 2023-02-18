@@ -30,5 +30,10 @@ class LoginCtrl extends Controller
         }
 
     }
+    public function Logout(Request $request)
+    {
+      $request->session()->flush();
+      return view('Login');
+    }
 
 }

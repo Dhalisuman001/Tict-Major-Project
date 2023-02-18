@@ -214,20 +214,24 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="device-entry" method="post">
+              <form action="customer" method="post">
                 @csrf
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="DeviceCode">Device Code</label>
-                    <input type="text" class="form-control" id="device_code" name="device_code" placeholder="Enter Device Code"  required>
+                    <label for="CustomerCode">Customer Code</label>
+                    <input type="text" class="form-control" id="customer_code" name="customer_code" placeholder="Enter Customer Code"  required>
                   </div>
                   <div class="form-group">
-                    <label for="DeviceName">Device Name</label>
-                    <input type="text" class="form-control" id="device_name" name="device_name" placeholder="Enter Device Name" required>
+                    <label for="CustomerName">Customer Name</label>
+                    <input type="text" class="form-control" id="customer_name" name="customer_name" placeholder="Enter Customer Name" required>
                   </div>
                   <div class="form-group">
-                    <label for="BatchNo">Batch Number</label>
-                    <input type="text" class="form-control" id="batch_no" name="batch_no" placeholder="Enter Batch No" required>
+                    <label for="CustomerAddress">Customer Address</label>
+                    <input type="text" class="form-control" id="customer_address" name="customer_address" placeholder="Enter Customer Address" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="CustomerPhone">Customer Phone</label>
+                    <input type="text" class="form-control" id="customer_phone" name="customer_phone" placeholder="Enter Customer Phone" required>
                   </div>
                 </div>
                 <!-- /.card-body -->
