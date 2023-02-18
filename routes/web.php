@@ -8,6 +8,7 @@ use App\Http\Controllers\DeviceRegisterCtrl;
 use App\Http\Controllers\DeviceStatsCtrl;
 use App\Http\Controllers\DeviceIssueCtrl;
 use App\Http\Controllers\SensorRegisterCtrl;
+use App\Http\Controllers\CustomerRegister;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -53,6 +54,10 @@ Route::post('/device-issue',[DeviceIssueCtrl::class,'DeviceIssue']);
 Route::get('/sensor',[SensorRegisterCtrl::class,'Index']);
 
 Route::post('/sensor',[SensorRegisterCtrl::class,'SensorRegister']);
+
+Route::get('/customer',[CustomerRegister::class,'Index']);
+
+Route::post('/sensor',[CustomerRegister::class,'CustomerEntry']);
 
 
 // Route::get('login/{username}/{password}',[LoginController::class,'Login'])->name('login');

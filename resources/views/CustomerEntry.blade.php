@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  @include('includes.head')
-
+ @include('includes.head')
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -177,7 +176,7 @@
       </div>
 
       <!-- Sidebar Menu -->
-             @include('includes.form')
+            @include('includes.form')
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
@@ -202,13 +201,42 @@
       </div><!-- /.container-fluid -->
     </section>
 
-
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-        <div class="row" id="device__details">
+        <div class="row">
           <!-- left column -->
+          <div class="col-md-6">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Device Entry</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form action="device-entry" method="post">
+                @csrf
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="DeviceCode">Device Code</label>
+                    <input type="text" class="form-control" id="device_code" name="device_code" placeholder="Enter Device Code"  required>
+                  </div>
+                  <div class="form-group">
+                    <label for="DeviceName">Device Name</label>
+                    <input type="text" class="form-control" id="device_name" name="device_name" placeholder="Enter Device Name" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="BatchNo">Batch Number</label>
+                    <input type="text" class="form-control" id="batch_no" name="batch_no" placeholder="Enter Batch No" required>
+                  </div>
+                </div>
+                <!-- /.card-body -->
 
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+            </div>
             <!-- /.card -->
 
 
@@ -241,81 +269,12 @@
 <script src="plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <!-- Page specific script -->
 <script>
 $(function () {
   bsCustomFileInput.init();
 });
-
-const container = document.getElementById("device__details");
-
-
-var settings = {
-  "url": "http://127.0.0.1:8000/api/device-state?id=0",
-  "method": "GET",
-  "timeout": 0,
-
-};
-
-$.ajax(settings).done(function (res) {
- res.forEach((element) => {
-//  console.log(element);
-  const widget = document.createElement("div");
-widget.setAttribute("class", "col-md-4");
-widget.innerHTML = `
-
-            <div class="card card-widget widget-user">
-              <div class="widget-user-header bg-primary">
-                <h3 class="widget-user-username" id="device_name_${element.device_id}">${element.device_name}</h3>
-                <h5 class="widget-user-desc" id="device_owner_${element.device_id}">Owner- ${element.created_by}  </h5>
-              </div>
-              <div class="card-footer p-0">
-                <ul class="nav flex-column">
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">
-                      Temparature <span class="float-right badge bg-primary" id="temp_${element.device_id}" > ${element.device_temp}°C</span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">
-                      Humidity <span class="float-right badge bg-info" id="humidity_${element.device_id}" > ${element.device_humidity}%</span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <!-- /.widget-user -->
-         `;
-
-    container.appendChild(widget);
-
- })});
-
-
-
- const autoUpdate = ()=>{
-  $.ajax(settings).done(function (res) {
- res.forEach((element) => {
-
-  document.getElementById(`device_name_${element.device_id}`).innerHTML = element.device_name;
-  document.getElementById(`device_owner_${element.device_id}`).innerHTML = `Owner- ${element.created_by}` ;
-  document.getElementById(`temp_${element.device_id}`).innerHTML = `${element.device_temp}°C` ;
-  document.getElementById(`humidity_${element.device_id}`).innerHTML = `${element.device_humidity}%` ;
-
-
-
- })
-
-  })
-
- }
-
- setInterval(() => {
-  autoUpdate();
- }, 10000);
-
 </script>
 </body>
 </html>
