@@ -11,7 +11,9 @@ class DeviceIssueCtrl extends Controller
         if (session('username')=='') {
            return view('Login');
         }
-        return view('DeviceIssue');
+        $data=['fullname'=>session('fullname'),'username'=>session('username')];
+
+        return view('DeviceIssue',$data);
     }
     public function DeviceIssue(Request $request){
         $device_id = $request->device_id;

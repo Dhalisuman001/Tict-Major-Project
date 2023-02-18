@@ -11,8 +11,11 @@ class DeviceRegisterCtrl extends Controller
         if (session('username')=='') {
            return view('Login');
         }
-        return view('DeviceEntry');
+       $data=['fullname'=>session('fullname'),'username'=>session('username')];
+    return view('DeviceEntry',$data);
     }
+
+
     public function DeviceEntry(Request $request){
         $device_name = $request->device_name;
         $device_code = $request->device_code;

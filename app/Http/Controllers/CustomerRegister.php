@@ -12,7 +12,8 @@ class CustomerRegister extends Controller
         if (session('username')=='') {
            return view('Login');
         }
-        return view('CustomerEntry');
+        $data=['fullname'=>session('fullname'),'username'=>session('username')];
+        return view('CustomerEntry',$data);
     }
      public function CustomerEntry(Request $request){
         $customer_code = $request->customer_code;

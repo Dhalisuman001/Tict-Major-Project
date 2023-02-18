@@ -8,10 +8,11 @@ class DeviceStatsCtrl extends Controller
 {
 
   public function Index(){
-    if (session('username')=='') {
+    if (session('email')=='') {
            return view('Login');
         }
-    return view('Dashboard');
+    $data=['fullname'=>session('fullname'),'username'=>session('username')];
+    return view('Dashboard',$data);
   }
 
     public function getDeviceState(Request $request){
@@ -21,7 +22,7 @@ class DeviceStatsCtrl extends Controller
          'id' => $id,
        ]);
 
-    // return view('dashboard');
+    
 
 
 }

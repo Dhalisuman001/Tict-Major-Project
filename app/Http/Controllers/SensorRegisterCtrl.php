@@ -11,7 +11,9 @@ class SensorRegisterCtrl extends Controller
         if (session('username')=='') {
            return view('Login');
         }
-        return view('SensorEntry');
+
+        $data=['fullname'=>session('fullname'),'username'=>session('username')];
+        return view('SensorEntry',$data);
     }
     public function SensorRegister(Request $request){
         $sensor_name = $request->sensor_name;

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
+use App\Http\Controllers\DeviceStatsCtrl;
 
 class LoginCtrl extends Controller
 {
@@ -23,7 +24,7 @@ class LoginCtrl extends Controller
             session(['fullname'=>$res[0]->fullname]);
             session(['username'=>$res[0]->username]);
             session(['email'=>$res[0]->email]);
-            return view('dashboard');
+            return  redirect()->action([DeviceStatsCtrl::class,'Index']);
         }
         else{
              return view('Login');
